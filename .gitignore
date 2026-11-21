@@ -1,0 +1,11 @@
+# IDE files
+.idea/
+.vs/
+.code/
+.vscode/
+
+# AI agent files
+.serena/
+.repowise/
+AGENT.md
+CLAUDE.md
