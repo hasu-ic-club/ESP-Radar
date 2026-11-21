@@ -1,0 +1,22 @@
+idf_component_register(
+    SRCS
+        "src/main.c"
+        "src/app/capture.c"
+        "src/app/radar.c"
+        "src/app/range_fft.c"
+        "src/periph/radar_csi.c"
+        "src/periph/usb_cdc.c"
+        "src/port/mmwavelink_port.c"
+    INCLUDE_DIRS "include"
+    PRIV_REQUIRES
+        esp_driver_dma
+        esp_driver_gpio
+        esp_driver_isp
+        esp_driver_spi
+        esp_hal_cam
+        esp_hw_support
+        esp_mm
+        esp_psram
+        esp_timer
+        mmwavelink-esp32
+)

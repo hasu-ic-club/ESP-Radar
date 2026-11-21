@@ -1,3 +1,6 @@
 [submodule "01-init-demo/components/mmwavelink-esp32"]
 	path = 01-init-demo/components/mmwavelink-esp32
 	url = https://github.com/hasu-ic-club/mmWaveLink-ESP32.git
+[submodule "02-realtime-capture/esp32/components/mmwavelink-esp32"]
+	path = 02-realtime-capture/esp32/components/mmwavelink-esp32
+	url = https://github.com/hasu-ic-club/mmWaveLink-ESP32.git

@@ -213,7 +213,7 @@ static esp_err_t init_radar_rf_system(mmwl_esp_config_t* mmwl_config)
     mmwl_config->cq_size[1] = 128;
     mmwl_config->cq_size[2] = 128;
 
-    mmwl_config->data_rate = MMWL_ESP_CSI_DATA_RATE_150MBPS;
+    mmwl_config->data_rate = MMWL_ESP_CSI_DATA_RATE_600MBPS;
     mmwl_config->csi_lane_setting = 0x30021; // Use 2-lane CSI interface
 
     // Write configurations to radar

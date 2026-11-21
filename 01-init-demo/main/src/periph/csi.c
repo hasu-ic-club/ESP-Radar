@@ -57,7 +57,7 @@ esp_err_t prepare_csi_capture(
         .h_res = cfg->bytes_per_chirp,
         .v_res = cfg->chirps_per_frame,
         .data_lane_num = 2,
-        .lane_bit_rate_mbps = 150,
+        .lane_bit_rate_mbps = 600,
         .input_data_color_type = CAM_CTLR_COLOR_RAW8,
         .output_data_color_type = CAM_CTLR_COLOR_RAW8,
         .queue_items = 1,

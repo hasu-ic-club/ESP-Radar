@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "radar-capture"
+version = "0.1.0"
+description = "ESP32-P4 and AWR2243 real-time radar capture"
+requires-python = ">=3.11"
+dependencies = [
+    "h5py>=3.12,<4",
+    "numpy>=2.0,<3",
+    "pyqt6>=6.7,<7",
+    "pyqtgraph>=0.14,<0.15",
+    "pyserial>=3.5,<4",
+]
+
+[project.scripts]
+radar-capture = "radar_capture.__main__:main"
+
+[tool.ruff]
+line-length = 79
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/radar_capture"]

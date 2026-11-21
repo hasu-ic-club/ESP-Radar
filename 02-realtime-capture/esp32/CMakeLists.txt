@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.22)
+set(IDF_TARGET esp32p4 CACHE STRING "Firmware target")
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+idf_build_set_property(MINIMAL_BUILD ON)
+project(esp-radar-capture)
