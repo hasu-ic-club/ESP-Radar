@@ -1,0 +1,149 @@
+menu "mmWave Radar Subsystem Configuration"
+    menu "Hardware Configuration"
+        config XWR_SPI_MOSI_GPIO
+            int "Radar SPI control MOSI GPIO"
+            default 22
+            range 0 54
+            help
+                Set the GPIO number of MOSI pin of radar's SPI interface
+
+        config XWR_SPI_MISO_GPIO
+            int "Radar SPI control MISO GPIO"
+            default 21
+            range 0 54
+            help
+                Set the GPIO number of MISO pin of radar's SPI interface
+
+        config XWR_SPI_SCK_GPIO
+            int "Radar SPI control SCK GPIO"
+            default 20
+            range 0 54
+            help
+                Set the GPIO number of SCK pin of radar's SPI interface
+
+        config XWR_SPI_CSN_GPIO
+            int "Radar SPI control chip select GPIO"
+            default 23
+            range 0 54
+            help
+                Set the GPIO number of CS_N pin of radar's SPI interface
+
+        config XWR_HOST_INT_GPIO
+            int "Radar host interrupt GPIO"
+            default 29
+            range 0 54
+            help
+                Set the GPIO number of host interrupt pin of radar
+
+        config XWR_RESET_N_GPIO
+            int "Radar SPI control reset GPIO"
+            default 28
+            range 0 54
+            help
+                Set the GPIO number of RESET_N pin of radar
+
+        config XWR_SPI_MAX_TRANSFER_SIZE
+            int "Maximum transfer size on SPI interface to radar"
+            default 4096
+            range 256 131072
+            help
+                Maximum transfer size (in bytes) of single transaction on radar SPI interface
+
+        config XWR_SPI_HOST
+            int "SPI HOST ID to connect to radar"
+            default 1
+            range 0 2
+            help
+                Host ID of on-chip SPI controller (HOST1 = 0, HOST2 = 1, HOST3 = 2) to connect to radar
+
+        config XWR_SPI_MODE
+            int "Radar SPI mode"
+            default 0
+            range 0 3
+            help
+                SPI mode of the radar's interface
+
+        config XWR_SPI_CLOCK_HZ
+            int "Radar SPI speed"
+            default 10000000
+            range 2000000 20000000
+            help
+                SPI clock speed (in Hz) of radar SPI interface
+
+        config XWR_SPI_CS_DELAY_ORIGINAL
+            int "Radar SPI CSN setup delay"
+            default 2000000
+            range 100000 10000000
+            help
+                Delay time (in us) between CS# low and first data out of radar SPI interface
+    endmenu
+
+    menu "Storage Configuration"
+        config SDCARD_SLOT
+            int "SD Card Peripheral Slot"
+            range 0 1
+            default 0
+            help
+                Set SD card peripheral slot. Slot 1 can specify the pins.
+
+        config SDCARD_PWR_CTRL_LDO_INTERNAL
+            bool "SD Card power supply comes from internal LDO IO"
+            default y
+            help
+                Only needed when the SD card is connected to specific IO pins which can be used for high-speed SDMMC.
+                Please read the schematic first and check if the SD VDD is connected to any internal LDO output.
+                Unselect this option if the SD card is powered by an external power supply.
+
+        config SDCARD_PWR_CTRL_LDO_IO_ID
+            depends on SDCARD_PWR_CTRL_LDO_INTERNAL
+            int "SD Card internal LDO ID"
+            default 4 if IDF_TARGET_ESP32P4
+            help
+                Please read the schematic first and check if the SD VDD is connected to which internal LDO output
+
+        menu "SD Card GPIOs"
+            visible if SDCARD_SLOT = 1
+            config SDCARD_SLOT_CLK_GPIO
+                int "SD Card Clock GPIO"
+                range 0 54
+                default 43
+                help
+                    Set the GPIO number used for CLK of SD Card
+
+            config SDCARD_SLOT_CMD_GPIO
+                int "SD Card Command GPIO"
+                range 0 54
+                default 44
+                help
+                    Set the GPIO number used for CMD of SD Card
+
+            config SDCARD_SLOT_D0_GPIO
+                int "SD Card D0 GPIO"
+                range 0 54
+                default 39
+                help
+                    Set the GPIO number used for D0 of SD Card
+
+            config SDCARD_SLOT_D1_GPIO
+                int "SD Card D1 GPIO"
+                range 0 54
+                default 40
+                help
+                    Set the GPIO number used for D1 of SD Card
+
+            config SDCARD_SLOT_D2_GPIO
+                int "SD Card D2 GPIO"
+                range 0 54
+                default 41
+                help
+                    Set the GPIO number used for D2 of SD Card
+
+            config SDCARD_SLOT_D3_GPIO
+                int "SD Card D3 GPIO"
+                range 0 54
+                default 42
+                help
+                    Set the GPIO number used for D3 of SD Card
+        endmenu
+    endmenu
+endmenu

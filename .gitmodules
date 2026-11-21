@@ -1,0 +1,3 @@
+[submodule "01-init-demo/components/mmwavelink-esp32"]
+	path = 01-init-demo/components/mmwavelink-esp32
+	url = https://github.com/hasu-ic-club/mmWaveLink-ESP32.git
